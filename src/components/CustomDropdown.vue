@@ -34,15 +34,15 @@ export default {
   },
   methods: {
     changeYear(amount) {
-      // Implementar lógica para cambiar el año
+
       this.selectedYear += amount;
     },
     selectMonth(month) {
-      // Emitir señal de mes seleccionado
+
       this.$emit('onDateMonthChanged', this.selectedYear, month);
     },
     selectAllYear() {
-      // Emitir señal de año completo seleccionado
+
       this.$emit('onFullYear', this.selectedYear);
     }
   }
