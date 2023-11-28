@@ -3,36 +3,47 @@
     <h1>{{ msg }}</h1>
     <button class="btn" :class="{ 'btn-primary': status, 'btn-secondary': !status }" @click="toggleState">{{ status ?
       'Encendido' : 'Apagado' }}</button>
+    <h1></h1>
+    <custom-dropdown @onDateMonthChanged="handleDateMonthChanged" @onFullYear="handleFullYearChanged" />
   </div>
 </template>
 
 <script>
+import CustomDropdown from '/home/edis/Documentos/prueba-gitvue/src/components/CustomDropdown.vue';
+
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String,
+
+  components: {
+    CustomDropdown,
 
   },
- 
+
+  props: {
+    msg: String,
+  },
+
   data: function () {
 
     return {
       status: false
     };
-
   },
 
   methods: {
+    handleDateMonthChanged(year, month) {
+      console.log(`Mes seleccionado: ${month} ${year}`);
+    },
+    handleFullYearChanged(year) {
+      console.log(`Año completo seleccionado: ${year}`);
+    },
+
     toggleState: function () {
       this.status = !this.status;
     }
   }
-
-}
-
+};
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
