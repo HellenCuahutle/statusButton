@@ -28,7 +28,7 @@
 export default {
   data() {
     return {
-      selectedYear: null,
+      selectedYear: '2023',
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     };
   },

@@ -9,15 +9,11 @@
 </template>
 
 <script>
-import CustomDropdown from '/home/edis/Documentos/prueba-gitvue/src/components/CustomDropdown.vue';
+
 
 export default {
-  name: 'HelloWorld',
+  name: 'HelloWorld, CustomDropdown',
 
-  components: {
-    CustomDropdown,
-
-  },
 
   props: {
     msg: String,

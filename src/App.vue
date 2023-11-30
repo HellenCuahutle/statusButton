@@ -7,12 +7,15 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import CustomDropdown from './components/CustomDropdown.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
+    CustomDropdown
   }
+
 }
 </script>
 
