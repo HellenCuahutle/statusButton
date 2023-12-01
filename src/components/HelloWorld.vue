@@ -12,7 +12,7 @@
 
 
 export default {
-  name: 'HelloWorld, CustomDropdown',
+  name: 'HelloWorld',
 
 
   props: {

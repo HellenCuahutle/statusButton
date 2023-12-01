@@ -28,13 +28,12 @@
 export default {
   data() {
     return {
-      selectedYear: '2023',
+      selectedYear: 2023,
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     };
   },
   methods: {
-    changeYear(amount) {
-
+    changeYear(amount) { 
       this.selectedYear += amount;
     },
     selectMonth(month) {
@@ -44,7 +43,9 @@ export default {
     selectAllYear() {
 
       this.$emit('onFullYear', this.selectedYear);
-    }
+      
+    },
+
   }
 };
 </script>
