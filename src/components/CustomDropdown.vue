@@ -2,7 +2,9 @@
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
-      {{ selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año' }}
+      {{`${this.months[selectedMonth]} ${selectedYear}`}}
+      <!--{{`Todo ${selectedYear}`}}-->
+      <!--{{ selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año' }}-->
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="row">
@@ -17,7 +19,7 @@
         </div>
       </div>
       <div class="dropdown-divider"></div>
-      <div v-for="month in months" :key="month" @click="selectMonth(month)" class="dropdown-item">{{ month }}</div>
+      <div v-for= "(month, index) in months" :key="month" @click="selectMonth(index)" class="dropdown-item">{{ month }}</div>
       <div class="dropdown-divider"></div>
       <div @click="selectAllYear" class="dropdown-item">Seleccionar todo el año</div>
     </div>
@@ -29,23 +31,27 @@ export default {
   data() {
     return {
       selectedYear: 2023,
-      months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+      months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+      selectedMonth: 0,
     };
   },
   methods: {
-    changeYear(amount) { 
+    changeYear(amount) {
+
       this.selectedYear += amount;
+      console.log(this.selectedYear);
     },
     selectMonth(month) {
 
+      this.selectedMonth = month;
       this.$emit('onDateMonthChanged', this.selectedYear, month);
+      console.log(month, this.months[month]);
     },
     selectAllYear() {
 
       this.$emit('onFullYear', this.selectedYear);
-      
+      console.log(this.selectedYear);
     },
-
   }
 };
 </script>
