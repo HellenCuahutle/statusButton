@@ -2,9 +2,17 @@
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
       aria-haspopup="true" aria-expanded="false">
-      {{`${this.months[selectedMonth]} ${selectedYear}`}}
-      <!--{{`Todo ${selectedYear}`}}-->
+      <!--{{ `${this.months[selectedMonth]} ${selectedYear}` ?  `Todo ${selectedYear}` : 'Seleccione fecha'}}-->
+
+      {{ selectedMonth ? `${this.months[selectedMonth]} ${selectedYear}` : `Todo ${selectedYear}`}}
+
+      
       <!--{{ selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año' }}-->
+
+
+        <!--{{selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año'}}-->
+
+
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="row">
