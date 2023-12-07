@@ -6,13 +6,9 @@
 
       {{ selectedMonth ? `${this.months[selectedMonth]} ${selectedYear}` : `Todo ${selectedYear}`}}
 
-      
       <!--{{ selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año' }}-->
 
-
         <!--{{selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año'}}-->
-
-
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="row">
