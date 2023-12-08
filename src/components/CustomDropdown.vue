@@ -4,7 +4,7 @@
       aria-haspopup="true" aria-expanded="false">
       <!--{{ `${this.months[selectedMonth]} ${selectedYear}` ?  `Todo ${selectedYear}` : 'Seleccione fecha'}}-->
 
-      {{ selectedMonth ? `${this.months[selectedMonth]} ${selectedYear}` : `Todo ${selectedYear}`}}
+      {{ selectedAll ?  `${this.months[selectedMonth]} ${selectedYear}` : `${allYear}`}}
 
       <!--{{ selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año' }}-->
 
@@ -36,7 +36,9 @@ export default {
     return {
       selectedYear: 2023,
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-      selectedMonth: 0,
+      selectedMonth: 1,
+      selectedAll: true,
+
     };
   },
   methods: {
@@ -56,6 +58,11 @@ export default {
       this.$emit('onFullYear', this.selectedYear);
       console.log(this.selectedYear);
     },
+  },
+  
+    allYear: function(){
+      this.$emit('Todo' + this.selectedYear);
+    
   }
 };
 </script>
