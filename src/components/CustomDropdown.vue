@@ -1,18 +1,9 @@
 <template>
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
-      <!--{{ `${this.months[selectedMonth]} ${selectedYear}` ?  `Todo ${selectedYear}` : 'Seleccione fecha'}}-->
+      aria-haspopup="true" aria-expanded="false" 
+      click="selectAllYear"> {{ status ? `${this.months[selectedMonth]} ${selectedYear}` : `Todo ${selectedYear}` }}
 
-      <!--{{ selectedAll ?  `${this.months[selectedMonth]} ${selectedYear}` : `Todo ${selectedYear}` }}-->
-     
-      <span v-if="status"> {{ `Todo ${selectedYear}` }}</span>
-      <h5 v-else>{{ mesPositivo }}</h5>
-
-
-      <!--{{ selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año' }}-->
-
-        <!--{{selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año'}}-->
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="row">
@@ -42,7 +33,7 @@ export default {
       selectedYear: 2023,
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
       selectedMonth: 1,
-      status: true,
+      status: false,
 
     };
   },
@@ -58,16 +49,11 @@ export default {
       this.$emit('onDateMonthChanged', this.selectedYear, month);
       console.log(month, this.months[month], this.selectedYear);
     },
-    selectAllYear() {
-
-      this.$emit('onFullYear', this.selectedYear);
+    selectAllYear : function() {
+      this.status = !this.status;
+      this.$emit('onFullYear', this.selectedYear)
       console.log(this.selectedYear);
-    },
-
-    mesPositivo: function(month){
-
-      this.$emit(month, this.months[month], this.selectedYear );
-      
+      console.log(this.status);
     },
   }  
 };

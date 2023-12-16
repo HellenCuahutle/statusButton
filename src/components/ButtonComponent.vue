@@ -12,7 +12,7 @@
 
 
 export default {
-  name: 'HelloWorld',
+  name: 'ButtonComponent',
 
   props: {
     msg: String,
@@ -42,7 +42,7 @@ export default {
 </script>
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin: 20px 0 0;
 }
 
 ul {
@@ -56,6 +56,6 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: rgb(185, 66, 165);
 }
 </style>
