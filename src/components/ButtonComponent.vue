@@ -33,8 +33,8 @@ export default {
     toggleState: function () {
       this.status = !this.status;
       console.log(this.status);
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped>
