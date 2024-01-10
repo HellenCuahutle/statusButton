@@ -1,14 +1,7 @@
 <template>
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-      aria-haspopup="true" aria-expanded="false">
-      <!--{{ `${this.months[selectedMonth]} ${selectedYear}` ?  `Todo ${selectedYear}` : 'Seleccione fecha'}}-->
-
-      {{ selectedAll ?  `${this.months[selectedMonth]} ${selectedYear}` : `${allYear}`}}
-
-      <!--{{ selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año' }}-->
-
-        <!--{{selectedYear ? `Todo ${selectedYear}` : 'Seleccione un año'}}-->
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  
+      aria-haspopup="true" aria-expanded="false"> {{ selectedAllYear ?  `${this.months[selectedMonth]} ${selectedYear}` : `Todo ${selectedYear}`}}
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <div class="row">
@@ -37,8 +30,7 @@ export default {
       selectedYear: 2023,
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
       selectedMonth: 1,
-      selectedAll: true,
-
+      status: false,
     };
   },
   methods: {
@@ -59,10 +51,9 @@ export default {
       console.log(this.selectedYear);
     },
   },
-  
-    allYear: function(){
-      this.$emit('Todo' + this.selectedYear);
-    
+  selectedAllYear: function () {
+      this.status = !this.status;
   }
 };
+
 </script>

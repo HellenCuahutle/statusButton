@@ -1,22 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ButtonComponent msg=""/>
     <CustomDropdown/>
+    <Icon/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import CustomDropdown from './components/CustomDropdown.vue'
+import ButtonComponent from './components/ButtonComponent.vue';
+import { Icon } from '@iconify/vue2';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    CustomDropdown
-  }
-
+    CustomDropdown,
+    ButtonComponent,
+    Icon,
+  },
 }
 </script>
 
