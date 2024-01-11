@@ -1,20 +1,28 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button class="btn" :class="{ 'btn-primary': status, 'btn-secondary': !status }" @click="toggleState">{{ status ?
+    <button class="btn btn-dark" @click="toggleState">{{ status ?
       'Entrada' : 'Salida' }} 
-
-    <p v-if="toggleState"><Icon icon="fluent:arrow-step-out-20-filled"/></p> 
-    <p v-else-if="!toggleState"><Icon icon="fluent:arrow-step-in-20-filled"/></p>
-
+    <p v-if="status"><Icon color="grey" icon="fluent:arrow-step-out-20-filled"/></p> 
+    <p v-else-if="!status"><Icon color="blue" icon="fluent:arrow-step-in-20-filled"/></p>
     </button>
     <h1></h1>
   </div>
 </template>
-
 <script>
+
+import { Icon } from '@iconify/vue2';
 export default {
+  components: {
+		Icon,
+	},
   
+  name: 'ButtonComponent',
+
+  props: {
+    msg: String,
+  },
+
   data: function () {
 
     return {
@@ -22,24 +30,17 @@ export default {
     };
   },
 
-  methods: {
-    handleDateMonthChanged(year, month) {
-      console.log(`Mes seleccionado: ${month} ${year}`);
-    },
-    handleFullYearChanged(year) {
-      console.log(`Año completo seleccionado: ${year}`);
-    },
-
+ methods: {
     toggleState: function () {
       this.status = !this.status;
       console.log(this.status);
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>
 h3 {
-  margin: 40px 0 0;
+  margin: 20px 0 0;
 }
 
 ul {
@@ -53,6 +54,6 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: rgb(185, 66, 165);
 }
 </style>

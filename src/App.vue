@@ -2,7 +2,6 @@
   <div id="app">
     <ButtonComponent msg=""/>
     <CustomDropdown/>
-  
   </div>
 </template>
 
@@ -15,7 +14,6 @@ export default {
   components: {
     CustomDropdown,
     ButtonComponent,
-    
   },
 }
 </script>
