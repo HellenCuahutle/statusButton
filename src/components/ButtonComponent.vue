@@ -1,10 +1,13 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button class="btn btn-dark" @click="toggleState">{{ status ?
+    <button class="btn btn-secondary" @click="toggleState">{{ status ?
       'Entrada' : 'Salida' }} 
-    <p v-if="status"><Icon color="grey" icon="fluent:arrow-step-out-20-filled"/></p> 
-    <p v-else-if="!status"><Icon color="blue" icon="fluent:arrow-step-in-20-filled"/></p>
+    
+    <div style="float:left;">
+      <p v-if="status"><Icon color="red" icon="fluent:arrow-step-out-20-filled"/></p> 
+      <p v-else-if="!status"><Icon color="blue" icon="fluent:arrow-step-in-20-filled"/></p>
+    </div>
     </button>
     <h1></h1>
   </div>
