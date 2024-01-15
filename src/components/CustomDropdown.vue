@@ -1,10 +1,8 @@
 <template>
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  
-      aria-haspopup="true" aria-expanded="false"> <!--{{ selectedAllYear ? `Todo ${selectedYear}` : `${this.months[selectedMonth]} ${selectedYear}`}}-->
-      
-      <p v-if="status">{{`Todo ${selectedYear}`}}</p>
-      <p v-else>{{`${this.months[selectedMonth]} ${selectedYear}`}}</p> 
+      aria-haspopup="true" aria-expanded="false" @click="selectAllYear"> <p v-if="status">{{`Todo ${selectedYear}`}}</p>
+                                                                         <p v-else>{{`${this.months[selectedMonth]} ${selectedYear}`}}</p> 
 
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -23,35 +21,35 @@
       <div v-for= "(month, index) in months" :key="month" @click="selectMonth(index)" class="dropdown-item">{{ month }}</div>
       <div class="dropdown-divider"></div>
       <div @click="selectAllYear" class="dropdown-item">Seleccionar todo el año</div>
-    </div>
   </div>
+</div>
 </template>
-
 <script>
+
 export default {
+
   data() {
     return {
-      selectedYear: 2023,
+      selectedYear: 2024,
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-      selectedMonth: 1,
-      status: false,
+      status: true,
+      selectedMonth: 0,
     };
   },
   methods: {
     changeYear(amount) {
       this.selectedYear += amount;
-      console.log(this.selectedYear);
     },
     selectMonth(month) {
+      this.status = false;
       this.selectedMonth = month;
-      this.$emit(this.selectedYear, month);
-      console.log(month, this.months[month]);
+      this.$emit('onDateMonthChanged', this.selectedYear, month);
+      
     },
     selectAllYear() {
-      this.$emit(this.selectedYear);
-      console.log(this.selectedYear);
+      this.status = true;
+      this.$emit('onFullYear', this.selectedYear);
     },
   },
-
 };
 </script>

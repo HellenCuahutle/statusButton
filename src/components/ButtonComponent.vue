@@ -2,7 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <button class="btn btn-secondary" @click="toggleState"> <Icon v-if="status" color="red" icon="fluent:arrow-step-out-20-filled"/>
-                                                            <Icon v-if="!status" color="blue" icon="fluent:arrow-step-in-20-filled"/>{{ status ? 'Entrada'  : 'Salida' }} 
+          
+      <Icon v-if="!status" color="blue" icon="fluent:arrow-step-in-20-filled"/>{{ status ? 'Entrada'  : 'Salida' }} 
     </button>
     <h1></h1>
   </div>
