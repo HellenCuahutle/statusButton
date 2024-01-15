@@ -32,7 +32,6 @@ export default {
  methods: {
     toggleState: function () {
       this.status = !this.status;
-      console.log(this.status);
     }
   }
 };

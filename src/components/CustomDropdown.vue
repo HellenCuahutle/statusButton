@@ -1,8 +1,8 @@
 <template>
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  
-      aria-haspopup="true" aria-expanded="false" @click="selectAllYear"> <p v-if="status">{{`Todo ${selectedYear}`}}</p>
-                                                                         <p v-else>{{`${this.months[selectedMonth]} ${selectedYear}`}}</p> 
+      aria-haspopup="true" aria-expanded="false" ><p v-if="status">{{`Todo ${selectedYear}`}}</p>
+                                                  <p v-else>{{`${this.months[selectedMonth]} ${selectedYear}`}}</p> 
 
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -27,13 +27,12 @@
 <script>
 
 export default {
-
   data() {
     return {
       selectedYear: 2024,
       months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
       status: true,
-      selectedMonth: 0,
+      selectedMonth: 1,
     };
   },
   methods: {
@@ -43,12 +42,13 @@ export default {
     selectMonth(month) {
       this.status = false;
       this.selectedMonth = month;
-      this.$emit('onDateMonthChanged', this.selectedYear, month);
-      
+      this.$emit('onDateMonthChanged',this.selectedYear, month);
+      console.log(this.selectedMonth);
     },
     selectAllYear() {
       this.status = true;
       this.$emit('onFullYear', this.selectedYear);
+      console.log(this.selectedYear);
     },
   },
 };
